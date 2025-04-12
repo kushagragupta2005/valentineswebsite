@@ -1,0 +1,12 @@
+# Ignore build and system files
+.DS_Store
+node_modules/
+*.log
+
+# Ignore audio files (to avoid copyright issues)
+*.mp3
+*.ogg
+
+# Ignore image assets if you prefer to upload separately
+# valentin-1.png
+# landscape_background.jpg
