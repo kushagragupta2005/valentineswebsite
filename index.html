@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Someone Special ❤️</title>
+    <meta name="description" content="A sweet Valentine's message for someone special 💌">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <style>
+        /* Fullscreen Letter Cover */
+        .letter-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffccdc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
+            z-index: 10;
+            transition: transform 1s ease-in-out;
+        }
+
+        /* Hide After Click */
+        .letter-container.hidden {
+            transform: translateY(100vh);
+        }
+
+        /* Main Content Styling */
+        .container {
+            text-align: center;
+            padding: 40px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #yesButton {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #d3d3d3;
+            color: #333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .letter-container {
+                font-size: 1.5rem;
+            }
+
+            .container h1 {
+                font-size: 1.5rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Fullscreen Letter -->
+<div id="letter" class="letter-container">
+    💌 Open This Special Message 💌
+</div>
+
+<!-- Main Content (Hidden Under Letter) -->
+<div class="container">
+    <h1>Hey, Beautiful ❤️</h1>
+    <p>I've been thinking... will you be my Valentine? 💘</p>
+    <button id="yesButton">Yes 💖</button>
+    <button id="noButton">No 😢</button>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" autoplay loop>
+    <source src="Bazzi_Beautiful.mp3" type="audio/mp3">
+    <source src="Bazzi - Beautiful feat. Camila.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    document.getElementById("letter").addEventListener("click", function () {
+        let letter = document.getElementById("letter");
+        let audio = document.getElementById("bgMusic");
+
+        // Drop the Letter
+        letter.classList.add("hidden");
+
+        // Start Confetti
+        confetti({
+            particleCount: 1000,
+            spread: 700,
+            origin: { y: 0 },
+            startVelocity: 50,
+            gravity: 0.5
+        });
+
+        // Play Music
+        audio.play().catch(err => {
+            console.log("Autoplay blocked. Waiting for user interaction.");
+        });
+    });
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
